@@ -1,7 +1,8 @@
 // Definindo minhas variáveis com as keys da API
-const timeStamp = ''
-const keyPublica = ''
-const md5 = ''
+const timeStamp = '1'
+const keyPublica = '84bd0d2f07f75ea6454fcf27780adc1b'
+//md5 = request marvel + timestamp + apykey + hash (timestamp+ publickey+ privatekey)
+const md5 = 'https://gateway.marvel.com:443/v1/public/characters?limit=60&apikey=84bd0d2f07f75ea6454fcf27780adc1b&hash=dac62e8abe2ae0a366fe16d4a180cd16'
 
 // Arrys utilizados nas funções de Search
 var arrayNomes = []
@@ -10,11 +11,12 @@ var arrayTitulos = []
 var arrayDivsQuadrinhos = []
 
 // Utilizando o fetch para fazer a chmada da API + o then para ter o retorno do meu objeto JSON
-fetch(`BOTA SEU TOKEN DA API AQUI(LIMITE OS CARACTERES E QUADRINHOS A 40)`
+fetch(`https://gateway.marvel.com:443/v1/public/characters?limit=60&apikey=84bd0d2f07f75ea6454fcf27780adc1b&hash=dac62e8abe2ae0a366fe16d4a180cd16`
     ).then((response) => {
         return response.json();        
     }).then((jsonParsed) => {
-        const divHerois = document.querySelector('#meusHerois')
+        //Obs: ('#Heros'), index: <div id = "Heros"></div>
+        const divHerois = document.querySelector('#Heros')
         jsonParsed.data.results.forEach( (element) => {
             const srcImagem = element.thumbnail.path + '.' + element.thumbnail.extension
             const nomeHeroi = element.name
@@ -24,7 +26,7 @@ fetch(`BOTA SEU TOKEN DA API AQUI(LIMITE OS CARACTERES E QUADRINHOS A 40)`
         })
 })
 // Pegando os quadrinhos da API
-fetch(`BOTA SEU TOKEN DA API AQUI`
+fetch(`https://gateway.marvel.com:443/v1/public/characters?limit=60&apikey=84bd0d2f07f75ea6454fcf27780adc1b&hash=dac62e8abe2ae0a366fe16d4a180cd16`
     ).then((response) => {
         return response.json();        
     }).then((jsonParsed) => {
